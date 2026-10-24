@@ -101,8 +101,8 @@ export default function Account() {
         <p className="text-[12px] text-muted-foreground">اطلاعات پروفایل، سطح کاربری، کد معرف و وضعیت اشتراک</p>
       </header>
 
-      {error ? <p className="rounded-xl bg-rose-50 px-3 py-2 text-xs text-rose-700">{error}</p> : null}
-      {notice ? <p className="rounded-xl bg-emerald-50 px-3 py-2 text-xs text-emerald-700">{notice}</p> : null}
+      {error ? <p className="rounded-xl bg-rose-500/10 px-3 py-2 text-xs text-rose-300">{error}</p> : null}
+      {notice ? <p className="rounded-xl bg-emerald-500/10 px-3 py-2 text-xs text-emerald-300">{notice}</p> : null}
 
       <div className="grid gap-2 sm:grid-cols-4">
         <Stat label="معاملات موفق" value={num(profile?.completed_trades)} />
@@ -240,11 +240,11 @@ export default function Account() {
               اشتراک حرفه‌ای
             </p>
             {activeSub ? (
-              <p className="rounded-xl bg-emerald-50 px-3 py-2 text-[11px] leading-5 text-emerald-800">
+              <p className="rounded-xl bg-emerald-500/10 px-3 py-2 text-[11px] leading-5 text-emerald-200">
                 اشتراک شما فعال است تا {jalaliDate(activeSub.expires_at)}.
               </p>
             ) : pendingSub ? (
-              <p className="rounded-xl bg-amber-50 px-3 py-2 text-[11px] leading-5 text-amber-800">
+              <p className="rounded-xl bg-amber-500/10 px-3 py-2 text-[11px] leading-5 text-amber-200">
                 درخواست اشتراک ثبت شده و در انتظار تأیید مدیر و اتصال درگاه پرداخت است.
               </p>
             ) : (

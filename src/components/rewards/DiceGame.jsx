@@ -40,7 +40,7 @@ export default function DiceGame({ done, onRoll }) {
     <section className="rounded-3xl border border-border bg-gradient-to-br from-emerald-500/10 via-card to-sky-500/10 p-4">
       <header className="mb-3">
         <p className="flex items-center gap-1.5 font-heading text-sm font-bold text-foreground">
-          <Dices className="h-4 w-4 text-emerald-600" />
+          <Dices className="h-4 w-4 text-emerald-300" />
           تاس روزانه
         </p>
         <p className="text-[11px] text-muted-foreground">هر روز یک پرتاب — شانس بیشتر با عدد بالاتر</p>
@@ -63,7 +63,7 @@ export default function DiceGame({ done, onRoll }) {
 
       <div className="space-y-2">
         {gained ? (
-          <p className="rounded-xl bg-emerald-50 px-3 py-2 text-center text-[12px] font-semibold text-emerald-800">
+          <p className="rounded-xl bg-emerald-500/10 px-3 py-2 text-center text-[12px] font-semibold text-emerald-200">
             {gained} امتیاز گرفتید
           </p>
         ) : null}

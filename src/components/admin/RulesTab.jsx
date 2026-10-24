@@ -173,8 +173,8 @@ export default function RulesTab({ user }) {
             <Input inputMode="numeric" value={form.priority} onChange={(e) => setForm({ ...form, priority: e.target.value })} />
           </div>
         </div>
-        {error ? <p className="rounded-xl bg-rose-50 px-3 py-2 text-xs text-rose-700">{error}</p> : null}
-        {message ? <p className="rounded-xl bg-emerald-50 px-3 py-2 text-xs text-emerald-700">{message}</p> : null}
+        {error ? <p className="rounded-xl bg-rose-500/10 px-3 py-2 text-xs text-rose-300">{error}</p> : null}
+        {message ? <p className="rounded-xl bg-emerald-500/10 px-3 py-2 text-xs text-emerald-300">{message}</p> : null}
         <div className="flex gap-2">
           <Button type="submit" size="sm" disabled={busy === 'rule'} className="gap-1.5">
             {busy === 'rule' ? <Loader2 className="h-4 w-4 animate-spin" /> : <Plus className="h-4 w-4" />}

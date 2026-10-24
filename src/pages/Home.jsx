@@ -40,10 +40,9 @@ export default function Home() {
 
   return (
     <div className="space-y-6">
-      <section className="relative overflow-hidden rounded-3xl bg-primary px-5 py-8 text-primary-foreground sm:px-8 sm:py-10">
-        <div className="absolute -left-16 -top-24 h-64 w-64 rounded-full bg-accent/25 blur-3xl" aria-hidden />
+      <section className="aurora relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-violet-700/95 via-fuchsia-700/90 to-sky-600/90 px-5 py-8 text-white shadow-glow-lg sm:px-8 sm:py-10">
         <div className="relative space-y-4">
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-primary-foreground/10 px-3 py-1 text-[11px] font-medium">
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-[11px] font-medium backdrop-blur">
             <ShieldCheck className="h-3.5 w-3.5" />
             معامله اعتبار با قرارداد شفاف و سابقه کامل
           </span>
@@ -55,13 +54,13 @@ export default function Home() {
             همراه است و تسویه فقط با تأیید خریدار و اتصال درگاه پرداخت انجام می‌شود.
           </p>
           <div className="flex flex-wrap gap-2 pt-1">
-            <Button asChild size="sm" className="gap-1.5 bg-primary-foreground text-primary hover:bg-primary-foreground/90">
+            <Button asChild size="sm" className="gap-1.5 bg-white text-fuchsia-700 shadow-glow hover:bg-white/90">
               <Link to="/buy">
                 <ArrowDownLeft className="h-4 w-4" />
                 خرید اعتبار
               </Link>
             </Button>
-            <Button asChild size="sm" variant="outline" className="gap-1.5 border-primary-foreground/30 bg-transparent text-primary-foreground hover:bg-primary-foreground/10">
+            <Button asChild size="sm" variant="outline" className="gap-1.5 border-white/25 bg-white/10 text-white backdrop-blur hover:bg-white/20">
               <Link to="/sell">
                 <ArrowUpRight className="h-4 w-4" />
                 فروش اعتبار
@@ -69,24 +68,24 @@ export default function Home() {
             </Button>
           </div>
           <div className="grid grid-cols-3 gap-2 pt-2 text-center">
-            <div className="rounded-xl bg-primary-foreground/10 px-2 py-2">
+            <div className="rounded-xl border border-white/10 bg-white/10 px-2 py-2 backdrop-blur">
               <p className="font-heading text-base font-bold">{num(counts.orders)}</p>
-              <p className="text-[10px] text-primary-foreground/70">آگهی فعال</p>
+              <p className="text-[10px] text-white/70">آگهی فعال</p>
             </div>
-            <div className="rounded-xl bg-primary-foreground/10 px-2 py-2">
+            <div className="rounded-xl border border-white/10 bg-white/10 px-2 py-2 backdrop-blur">
               <p className="font-heading text-base font-bold">{num(counts.trades)}</p>
-              <p className="text-[10px] text-primary-foreground/70">معامله ثبت‌شده</p>
+              <p className="text-[10px] text-white/70">معامله ثبت‌شده</p>
             </div>
-            <div className="rounded-xl bg-primary-foreground/10 px-2 py-2">
+            <div className="rounded-xl border border-white/10 bg-white/10 px-2 py-2 backdrop-blur">
               <p className="font-heading text-base font-bold">{num(counts.products)}</p>
-              <p className="text-[10px] text-primary-foreground/70">کالای فروشگاه</p>
+              <p className="text-[10px] text-white/70">کالای فروشگاه</p>
             </div>
           </div>
         </div>
       </section>
 
       {settings.ton_enabled ? (
-        <div className="rounded-2xl border border-sky-200 bg-sky-50 px-4 py-3 text-[11px] leading-6 text-sky-900">
+        <div className="rounded-2xl border border-sky-400/20 bg-sky-500/10 px-4 py-3 text-[11px] leading-6 text-sky-200">
           <span className="font-semibold">پرداخت با شبکه TON:</span> کنار هر مبلغ تومانی، معادل تون آن هم نمایش داده می‌شود؛
           پرداخت مستقیم بین طرفین با هش تراکنش مستند و پس از تأیید خریدار تسویه می‌گردد.
           {isAdmin ? ' نرخ تبدیل و آدرس کیف پول را در پنل مدیریت تنظیم کنید.' : ''}

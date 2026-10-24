@@ -84,7 +84,7 @@ export default function OrderDetail() {
   };
 
   if (loading) return <p className="text-xs text-muted-foreground">در حال بارگذاری سفارش…</p>;
-  if (!order) return <p className="rounded-xl bg-rose-50 px-3 py-2 text-xs text-rose-700">این سفارش یافت نشد.</p>;
+  if (!order) return <p className="rounded-xl bg-rose-500/10 px-3 py-2 text-xs text-rose-300">این سفارش یافت نشد.</p>;
 
   const status = ORDER_STATUSES[order.status] || ORDER_STATUSES.listed;
   const isOwner = order.owner_id === user?.id;
@@ -145,11 +145,11 @@ export default function OrderDetail() {
           </div>
         ) : null}
 
-        {notice ? <p className="rounded-xl bg-emerald-50 px-3 py-2 text-xs text-emerald-700">{notice}</p> : null}
-        {error ? <p className="rounded-xl bg-rose-50 px-3 py-2 text-xs text-rose-700">{error}</p> : null}
+        {notice ? <p className="rounded-xl bg-emerald-500/10 px-3 py-2 text-xs text-emerald-300">{notice}</p> : null}
+        {error ? <p className="rounded-xl bg-rose-500/10 px-3 py-2 text-xs text-rose-300">{error}</p> : null}
 
         {order.status === 'matched' ? (
-          <div className="flex items-center gap-2 rounded-xl bg-sky-50 px-3 py-2 text-[11px] text-sky-800">
+          <div className="flex items-center gap-2 rounded-xl bg-sky-500/10 px-3 py-2 text-[11px] text-sky-200">
             <CalendarClock className="h-4 w-4" />
             این سفارش در حال معامله است؛ پیگیری از صفحه معاملات من.
           </div>

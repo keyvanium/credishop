@@ -44,7 +44,7 @@ export default function TradeDetail() {
   }, [load]);
 
   if (loading) return <p className="text-xs text-muted-foreground">در حال بارگذاری معامله…</p>;
-  if (!trade) return <p className="rounded-xl bg-rose-50 px-3 py-2 text-xs text-rose-700">این معامله یافت نشد یا دسترسی به آن ندارید.</p>;
+  if (!trade) return <p className="rounded-xl bg-rose-500/10 px-3 py-2 text-xs text-rose-300">این معامله یافت نشد یا دسترسی به آن ندارید.</p>;
 
   const status = TRADE_STATUSES[trade.status] || TRADE_STATUSES.matched;
   const deadline = trade.status === 'awaiting_funding'
@@ -142,15 +142,15 @@ export default function TradeDetail() {
         </div>
 
         {trade.dispute_reason ? (
-          <div className="rounded-xl bg-rose-50 px-3 py-2 text-[11px] leading-6 text-rose-700">
+          <div className="rounded-xl bg-rose-500/10 px-3 py-2 text-[11px] leading-6 text-rose-300">
             <span className="font-semibold">اختلاف: </span>
             {trade.dispute_reason}
             {trade.resolution_note ? ` — نتیجه: ${trade.resolution_note}` : ''}
           </div>
         ) : null}
 
-        {notice ? <p className="rounded-xl bg-emerald-50 px-3 py-2 text-xs text-emerald-700">{notice}</p> : null}
-        {error ? <p className="rounded-xl bg-rose-50 px-3 py-2 text-xs text-rose-700">{error}</p> : null}
+        {notice ? <p className="rounded-xl bg-emerald-500/10 px-3 py-2 text-xs text-emerald-300">{notice}</p> : null}
+        {error ? <p className="rounded-xl bg-rose-500/10 px-3 py-2 text-xs text-rose-300">{error}</p> : null}
 
         {!isAuthed ? (
           <p className="rounded-xl bg-muted/60 px-3 py-2 text-[11px] text-muted-foreground">

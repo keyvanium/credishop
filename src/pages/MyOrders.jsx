@@ -103,7 +103,7 @@ export default function MyOrders() {
         ))}
       </div>
 
-      {error ? <p className="rounded-xl bg-rose-50 px-3 py-2 text-xs text-rose-700">{error}</p> : null}
+      {error ? <p className="rounded-xl bg-rose-500/10 px-3 py-2 text-xs text-rose-300">{error}</p> : null}
       {loading ? <p className="text-xs text-muted-foreground">در حال بارگذاری…</p> : null}
 
       {!loading && tab === 'credit' ? (
@@ -137,7 +137,7 @@ export default function MyOrders() {
                       </Button>
                     ) : null}
                     {['listed', 'draft'].includes(order.status) ? (
-                      <Button size="sm" variant="ghost" className="h-8 text-[11px] text-rose-600" disabled={!!busy} onClick={() => cancel(order)}>
+                      <Button size="sm" variant="ghost" className="h-8 text-[11px] text-rose-300" disabled={!!busy} onClick={() => cancel(order)}>
                         {busy === order.id ? <Loader2 className="h-3.5 w-3.5 animate-spin" /> : null}
                         لغو
                       </Button>
@@ -174,7 +174,7 @@ export default function MyOrders() {
                     <StatusBadge label={status.label} tone={status.tone} />
                   </div>
                   {order.payment_status === 'not_configured' ? (
-                    <p className="rounded-lg bg-amber-50 px-2 py-1.5 text-[10px] leading-5 text-amber-800">
+                    <p className="rounded-lg bg-amber-500/10 px-2 py-1.5 text-[10px] leading-5 text-amber-200">
                       پرداخت آنلاین فروشگاه متصل نیست؛ هماهنگی وجه بین خریدار و فروشنده انجام می‌شود و رکورد مالی «در انتظار تسویه» است.
                     </p>
                   ) : null}
@@ -193,7 +193,7 @@ export default function MyOrders() {
                       </Button>
                     ))}
                     {isAdmin && ['delivered', 'disputed'].includes(order.status) ? (
-                      <Button size="sm" variant="outline" className="h-8 text-[11px] text-rose-600" disabled={!!busy} onClick={() => storeAction(order, 'refunded')}>
+                      <Button size="sm" variant="outline" className="h-8 text-[11px] text-rose-300" disabled={!!busy} onClick={() => storeAction(order, 'refunded')}>
                         بازپرداخت (مدیر)
                       </Button>
                     ) : null}

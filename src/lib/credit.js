@@ -76,11 +76,19 @@ export const LEDGER_STATUSES = {
 };
 
 export const TONE_CLASSES = {
-  muted: 'bg-slate-100 text-slate-600 border-slate-200',
-  info: 'bg-sky-50 text-sky-700 border-sky-200',
-  warning: 'bg-amber-50 text-amber-700 border-amber-200',
-  success: 'bg-emerald-50 text-emerald-700 border-emerald-200',
-  danger: 'bg-rose-50 text-rose-700 border-rose-200'
+  muted: 'bg-white/5 text-slate-400 border-white/10',
+  info: 'bg-sky-500/10 text-sky-300 border-sky-400/20',
+  warning: 'bg-amber-500/10 text-amber-300 border-amber-400/20',
+  success: 'bg-emerald-500/10 text-emerald-300 border-emerald-400/20',
+  danger: 'bg-rose-500/10 text-rose-300 border-rose-400/20'
+};
+
+export const TONE_DOTS = {
+  muted: 'bg-slate-400',
+  info: 'bg-sky-400 shadow-glow-sky',
+  warning: 'bg-amber-400 shadow-glow-amber',
+  success: 'bg-emerald-400 shadow-glow-emerald',
+  danger: 'bg-rose-400 shadow-glow-rose'
 };
 
 export const STORE_STATUSES = {

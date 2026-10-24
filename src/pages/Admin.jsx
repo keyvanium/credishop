@@ -24,7 +24,7 @@ export default function Admin() {
   if (!isAuthed || !isAdmin) {
     return (
       <div className="space-y-2 rounded-2xl border border-border bg-card p-6 text-center">
-        <span className="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-rose-50 text-rose-600">
+        <span className="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-rose-500/10 text-rose-300">
           <ShieldAlert className="h-5 w-5" />
         </span>
         <p className="font-heading text-sm font-semibold text-foreground">دسترسی مدیریتی لازم است</p>

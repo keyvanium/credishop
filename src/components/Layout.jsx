@@ -72,16 +72,17 @@ export default function Layout() {
 
   const navClass = useMemo(
     () => ({ isActive }) =>
-      `rounded-lg px-3 py-2 text-[13px] font-medium transition ${isActive ? 'bg-primary text-primary-foreground' : 'text-muted-foreground hover:bg-muted hover:text-foreground'}`,
+      `rounded-full px-3 py-2 text-[13px] font-medium transition ${isActive ? 'bg-gradient-to-l from-violet-600/90 to-fuchsia-600/90 text-white shadow-glow' : 'text-slate-400 hover:bg-white/5 hover:text-foreground'}`,
     []
   );
 
   return (
     <div className="min-h-screen bg-background">
-      <header className="sticky top-0 z-40 border-b border-border/70 bg-background/85 backdrop-blur">
+      <header className="sticky top-0 z-40 border-b border-white/5 bg-background/70 backdrop-blur-xl">
+        <div className="header-glow-line absolute inset-x-0 bottom-0 h-px" aria-hidden />
         <div className="mx-auto flex w-full max-w-6xl items-center gap-3 px-4 py-3">
           <Link to="/" className="flex items-center gap-2">
-            <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary text-primary-foreground">
+            <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-violet-600 via-fuchsia-600 to-sky-500 text-white shadow-glow">
               <ShieldCheck className="h-5 w-5" />
             </span>
             <span className="hidden flex-col leading-tight sm:flex">
@@ -101,7 +102,7 @@ export default function Layout() {
           <div className="mr-auto flex items-center gap-1.5">
             <Link
               to="/notifications"
-              className="relative rounded-lg p-2 text-muted-foreground transition hover:bg-muted hover:text-foreground"
+              className="relative rounded-lg p-2 text-muted-foreground transition hover:bg-white/5 hover:text-foreground"
               aria-label="اعلان‌ها"
             >
               <Bell className="h-4.5 w-4.5" />
@@ -112,14 +113,14 @@ export default function Layout() {
                 {isAdmin ? (
                   <Link
                     to="/admin"
-                    className="hidden rounded-lg px-2.5 py-2 text-[13px] font-medium text-muted-foreground transition hover:bg-muted hover:text-foreground sm:block"
+                    className="hidden rounded-lg px-2.5 py-2 text-[13px] font-medium text-muted-foreground transition hover:bg-white/5 hover:text-foreground sm:block"
                   >
                     مدیریت
                   </Link>
                 ) : null}
                 <Link
                   to="/account"
-                  className="flex items-center gap-1.5 rounded-lg border border-border px-2.5 py-1.5 text-[13px] font-medium text-foreground transition hover:bg-muted"
+                  className="flex items-center gap-1.5 rounded-full border border-white/10 bg-white/[0.04] px-2.5 py-1.5 text-[13px] font-medium text-foreground transition hover:bg-white/[0.08]"
                 >
                   <UserRound className="h-4 w-4" />
                   <span className="hidden sm:inline">{user?.full_name || 'حساب من'}</span>
@@ -142,14 +143,14 @@ export default function Layout() {
         <Outlet />
       </main>
 
-      <nav className="fixed inset-x-0 bottom-0 z-40 border-t border-border bg-background/95 pb-[env(safe-area-inset-bottom)] backdrop-blur sm:hidden">
+      <nav className="fixed inset-x-0 bottom-0 z-40 border-t border-white/5 bg-background/80 pb-[env(safe-area-inset-bottom)] backdrop-blur-xl sm:hidden">
         <div className="mx-auto flex max-w-md items-stretch justify-between px-2">
           {MOBILE_LINKS.map((link) => (
             <NavLink
               key={link.to}
               to={link.to}
               className={({ isActive }) =>
-                `flex flex-1 flex-col items-center gap-1 py-2.5 text-[10px] font-medium transition ${isActive ? 'text-primary' : 'text-muted-foreground'}`
+                `flex flex-1 flex-col items-center gap-1 py-2.5 text-[10px] font-medium transition ${isActive ? 'text-fuchsia-300' : 'text-slate-500'}`
               }
             >
               <link.icon className="h-5 w-5" />

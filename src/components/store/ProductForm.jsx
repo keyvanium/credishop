@@ -175,7 +175,7 @@ export default function ProductForm({ user, profile, product, onSaved, onCancel 
           <Input value={values.delivery_note} onChange={update('delivery_note')} placeholder="مثلاً ارسال کد در همان روز کاری" />
         </div>
       </div>
-      {error ? <p className="rounded-xl bg-rose-50 px-3 py-2 text-xs text-rose-700">{error}</p> : null}
+      {error ? <p className="rounded-xl bg-rose-500/10 px-3 py-2 text-xs text-rose-300">{error}</p> : null}
       <div className="flex gap-2">
         <Button type="submit" size="sm" disabled={busy} className="gap-1.5">
           {busy ? <Loader2 className="h-4 w-4 animate-spin" /> : <Plus className="h-4 w-4" />}

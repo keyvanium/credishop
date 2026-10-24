@@ -100,7 +100,7 @@ export default function Transactions() {
                     {entry.note ? <p className="text-[10px] text-muted-foreground">{entry.note}</p> : null}
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className={`text-[12px] font-semibold ${entry.direction === 'credit' ? 'text-emerald-600' : 'text-rose-600'}`}>
+                    <span className={`text-[12px] font-semibold ${entry.direction === 'credit' ? 'text-emerald-300' : 'text-rose-300'}`}>
                       {entry.direction === 'credit' ? '+' : '−'} {toman(entry.amount)}
                     </span>
                     <StatusBadge label={status.label} tone={status.tone} />

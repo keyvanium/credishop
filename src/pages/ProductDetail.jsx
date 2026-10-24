@@ -74,7 +74,7 @@ export default function ProductDetail() {
   };
 
   if (loading) return <p className="text-xs text-muted-foreground">در حال بارگذاری کالا…</p>;
-  if (!product) return <p className="rounded-xl bg-rose-50 px-3 py-2 text-xs text-rose-700">این کالا یافت نشد.</p>;
+  if (!product) return <p className="rounded-xl bg-rose-500/10 px-3 py-2 text-xs text-rose-300">این کالا یافت نشد.</p>;
 
   const status = PRODUCT_STATUSES[product.status] || PRODUCT_STATUSES.active;
   const isOwner = product.seller_id === user?.id;
@@ -128,13 +128,13 @@ export default function ProductDetail() {
           ) : null}
 
           {product.is_demo ? (
-            <p className="rounded-xl border border-amber-200 bg-amber-50 px-3 py-2 text-[11px] leading-5 text-amber-800">
+            <p className="rounded-xl border border-amber-400/20 bg-amber-500/10 px-3 py-2 text-[11px] leading-5 text-amber-200">
               این کالا نمونه (DEMO) است و برای نمایش رابط کاربری ثبت شده؛ سفارش واقعی روی آن ممکن نیست.
             </p>
           ) : null}
 
           {settings.ton_enabled ? (
-            <p className="flex items-start gap-1.5 rounded-xl border border-sky-200 bg-sky-50 px-3 py-2 text-[11px] leading-5 text-sky-900">
+            <p className="flex items-start gap-1.5 rounded-xl border border-sky-400/20 bg-sky-500/10 px-3 py-2 text-[11px] leading-5 text-sky-200">
               <ShieldAlert className="mt-0.5 h-3.5 w-3.5 shrink-0" />
               پرداخت این سفارش روی شبکه TON انجام می‌شود؛ سفارش با وضعیت «در انتظار پرداخت» ثبت و مبلغ معادل تون برای هماهنگی به
               شما نمایش داده می‌شود.
@@ -142,12 +142,12 @@ export default function ProductDetail() {
           ) : null}
 
           {created ? (
-            <div className="space-y-2 rounded-xl border border-emerald-200 bg-emerald-50 p-3">
-              <p className="flex items-center gap-1.5 text-[12px] font-semibold text-emerald-800">
+            <div className="space-y-2 rounded-xl border border-emerald-400/20 bg-emerald-500/10 p-3">
+              <p className="flex items-center gap-1.5 text-[12px] font-semibold text-emerald-200">
                 <CheckCircle2 className="h-4 w-4" />
                 سفارش {created.order_code} ثبت شد
               </p>
-              <p className="text-[11px] leading-6 text-emerald-900">
+              <p className="text-[11px] leading-6 text-emerald-200">
                 وضعیت: در انتظار پرداخت · مبلغ {toman(created.subtotal)} · کمیسیون پلتفرم {toman(created.commission_amount)}
               </p>
               <Button asChild size="sm" variant="outline">
@@ -187,7 +187,7 @@ export default function ProductDetail() {
                 <Row label="سهم فروشنده" value={toman(subtotal - commission.amount)} strong />
               </div>
 
-              {error ? <p className="rounded-xl bg-rose-50 px-3 py-2 text-xs text-rose-700">{error}</p> : null}
+              {error ? <p className="rounded-xl bg-rose-500/10 px-3 py-2 text-xs text-rose-300">{error}</p> : null}
 
               <Button type="submit" className="w-full gap-1.5" disabled={busy || product.is_demo}>
                 {busy ? <Loader2 className="h-4 w-4 animate-spin" /> : <ShoppingCart className="h-4 w-4" />}

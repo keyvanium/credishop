@@ -23,7 +23,7 @@ export default function MissionList({ missions, onClaim, busyId }) {
               <p className="truncate text-[10px] text-muted-foreground">{mission.note}</p>
             </div>
             {mission.done ? (
-              <span className="flex shrink-0 items-center gap-1 text-[10px] font-medium text-emerald-600">
+              <span className="flex shrink-0 items-center gap-1 text-[10px] font-medium text-emerald-300">
                 <CheckCircle2 className="h-3.5 w-3.5" />
                 دریافت شد
               </span>

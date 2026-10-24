@@ -57,8 +57,8 @@ export default function RevenueTab({ user }) {
 
   return (
     <div className="space-y-4">
-      {error ? <p className="rounded-xl bg-rose-50 px-3 py-2 text-xs text-rose-700">{error}</p> : null}
-      {message ? <p className="rounded-xl bg-emerald-50 px-3 py-2 text-xs text-emerald-700">{message}</p> : null}
+      {error ? <p className="rounded-xl bg-rose-500/10 px-3 py-2 text-xs text-rose-300">{error}</p> : null}
+      {message ? <p className="rounded-xl bg-emerald-500/10 px-3 py-2 text-xs text-emerald-300">{message}</p> : null}
 
       <Section title="درخواست‌های اشتراک حرفه‌ای" empty={!state.subscriptions.length}>
         {state.subscriptions.map((sub) => (

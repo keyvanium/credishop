@@ -87,7 +87,7 @@ export default function SpinWheel({ done, onSpin, balance }) {
 
       <div className="mt-3 space-y-2">
         {result ? (
-          <p className="flex items-center justify-center gap-1.5 rounded-xl bg-emerald-50 px-3 py-2 text-[12px] font-semibold text-emerald-800">
+          <p className="flex items-center justify-center gap-1.5 rounded-xl bg-emerald-500/10 px-3 py-2 text-[12px] font-semibold text-emerald-200">
             <Trophy className="h-4 w-4" />
             {result.points} امتیاز به کیف جایزه شما اضافه شد
           </p>

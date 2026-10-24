@@ -40,8 +40,8 @@ export default function UsersTab({ user }) {
 
   return (
     <div className="space-y-3">
-      {error ? <p className="rounded-xl bg-rose-50 px-3 py-2 text-xs text-rose-700">{error}</p> : null}
-      {message ? <p className="rounded-xl bg-emerald-50 px-3 py-2 text-xs text-emerald-700">{message}</p> : null}
+      {error ? <p className="rounded-xl bg-rose-500/10 px-3 py-2 text-xs text-rose-300">{error}</p> : null}
+      {message ? <p className="rounded-xl bg-emerald-500/10 px-3 py-2 text-xs text-emerald-300">{message}</p> : null}
       {!profiles.length ? <p className="text-xs text-muted-foreground">هنوز پروفایلی ثبت نشده است.</p> : null}
 
       {profiles.map((profile) => {

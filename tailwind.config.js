@@ -5,6 +5,14 @@ module.exports = {
   theme: {
   	extend: {
   		opacity: Object.fromEntries(Array.from({ length: 101 }, (_, i) => [i, `${i / 100}`])),
+ 	boxShadow: {
+ 		glow: '0 0 24px -6px hsl(258 89% 66% / 0.45)',
+ 		'glow-lg': '0 0 52px -12px hsl(258 89% 66% / 0.55)',
+ 		'glow-sky': '0 0 24px -6px hsl(199 100% 52% / 0.45)',
+ 		'glow-emerald': '0 0 24px -6px hsl(158 74% 46% / 0.5)',
+ 		'glow-amber': '0 0 24px -6px hsl(40 95% 58% / 0.5)',
+ 		'glow-rose': '0 0 24px -6px hsl(350 89% 60% / 0.5)'
+ 	},
   		borderRadius: {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
@@ -84,11 +92,26 @@ module.exports = {
   				to: {
   					height: '0'
   				}
+			},
+			float: {
+				'0%, 100%': { transform: 'translateY(0)' },
+				'50%': { transform: 'translateY(-10px)' }
+			},
+			'pulse-soft': {
+				'0%, 100%': { opacity: '1' },
+				'50%': { opacity: '0.55' }
+			},
+			shimmer: {
+				'0%': { backgroundPosition: '200% 0' },
+				'100%': { backgroundPosition: '-200% 0' }
   			}
   		},
   		animation: {
   			'accordion-down': 'accordion-down 0.2s ease-out',
-  			'accordion-up': 'accordion-up 0.2s ease-out'
+			'accordion-up': 'accordion-up 0.2s ease-out',
+			float: 'float 6s ease-in-out infinite',
+			'pulse-soft': 'pulse-soft 2.4s ease-in-out infinite',
+			shimmer: 'shimmer 2.8s linear infinite'
   		}
   	}
   },

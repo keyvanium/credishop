@@ -195,7 +195,7 @@ export default function OrderForm({ side, user, profile, settings, onCreated }) 
         </div>
       ) : null}
 
-      {error ? <p className="rounded-xl bg-rose-50 px-3 py-2 text-xs text-rose-700">{error}</p> : null}
+      {error ? <p className="rounded-xl bg-rose-500/10 px-3 py-2 text-xs text-rose-300">{error}</p> : null}
 
       <Button type="submit" className="w-full gap-2" disabled={busy}>
         {busy ? <Loader2 className="h-4 w-4 animate-spin" /> : null}

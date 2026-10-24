@@ -143,8 +143,8 @@ export default function Rewards() {
         </div>
       </section>
 
-      {error ? <p className="rounded-xl bg-rose-50 px-3 py-2 text-xs text-rose-700">{error}</p> : null}
-      {message ? <p className="rounded-xl bg-emerald-50 px-3 py-2 text-xs text-emerald-700">{message}</p> : null}
+      {error ? <p className="rounded-xl bg-rose-500/10 px-3 py-2 text-xs text-rose-300">{error}</p> : null}
+      {message ? <p className="rounded-xl bg-emerald-500/10 px-3 py-2 text-xs text-emerald-300">{message}</p> : null}
 
       {!state ? (
         <div className="flex items-center justify-center gap-2 py-10 text-xs text-muted-foreground">

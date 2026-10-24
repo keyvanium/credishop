@@ -73,7 +73,7 @@ export default function AdminTradesTab() {
                   {trade.buyer_display} ← {trade.seller_display} · {toman(trade.price)}
                 </p>
                 {trade.dispute_reason ? (
-                  <p className="max-w-lg truncate text-[11px] text-rose-600">دلیل اختلاف: {trade.dispute_reason}</p>
+                  <p className="max-w-lg truncate text-[11px] text-rose-300">دلیل اختلاف: {trade.dispute_reason}</p>
                 ) : null}
               </div>
               <div className="flex items-center gap-2">

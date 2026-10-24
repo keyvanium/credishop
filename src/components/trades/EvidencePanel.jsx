@@ -110,7 +110,7 @@ export default function EvidencePanel({ trade, user, profile, onAdded }) {
           </div>
         </div>
         <Textarea rows={2} value={description} onChange={(e) => setDescription(e.target.value)} placeholder="توضیح کوتاه درباره این مستند" />
-        {error ? <p className="rounded-xl bg-rose-50 px-3 py-2 text-xs text-rose-700">{error}</p> : null}
+        {error ? <p className="rounded-xl bg-rose-500/10 px-3 py-2 text-xs text-rose-300">{error}</p> : null}
         <div className="flex items-center justify-between gap-2">
           <p className="text-[10px] text-muted-foreground">فایل‌ها به‌صورت خصوصی ذخیره می‌شوند و فقط با مجوز دسترسی باز می‌شوند.</p>
           <Button type="submit" size="sm" disabled={busy} className="gap-1.5">

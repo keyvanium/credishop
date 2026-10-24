@@ -9,7 +9,7 @@ export default function OrderCard({ order }) {
   const status = ORDER_STATUSES[order.status] || ORDER_STATUSES.listed;
   const deadline = useMemo(() => deadlineText(order.listing_expires_at), [order.listing_expires_at]);
   const sideLabel = order.side === 'sell' ? 'فروشنده اعتبار' : 'خریدار اعتبار';
-  const sideTone = order.side === 'sell' ? 'bg-emerald-500/10 text-emerald-700' : 'bg-sky-500/10 text-sky-700';
+  const sideTone = order.side === 'sell' ? 'bg-emerald-500/10 text-emerald-300' : 'bg-sky-500/10 text-sky-300';
 
   return (
     <Link

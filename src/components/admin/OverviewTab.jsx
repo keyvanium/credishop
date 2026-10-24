@@ -52,7 +52,7 @@ export default function OverviewTab() {
     };
   }, []);
 
-  if (error) return <p className="rounded-xl bg-rose-50 px-3 py-2 text-xs text-rose-700">{error}</p>;
+  if (error) return <p className="rounded-xl bg-rose-500/10 px-3 py-2 text-xs text-rose-300">{error}</p>;
   if (!data) return <p className="text-xs text-muted-foreground">در حال محاسبه گزارش‌ها…</p>;
 
   const row = (rows, status) => rows.find((r) => r.status === status) || {};
@@ -90,11 +90,11 @@ export default function OverviewTab() {
             <ReportRow label="اشتراک حرفه‌ای" value={toman(subsRevenue)} />
             <ReportRow label="آگهی ویژه" value={toman(promoRevenue)} />
             <ReportRow label="جمع درآمد تعهدی" value={toman(accrued)} strong />
-            <ReportRow label="بازپرداخت‌ها" value={`− ${toman(refundTotal)}`} tone="text-rose-600" />
+            <ReportRow label="بازپرداخت‌ها" value={`− ${toman(refundTotal)}`} tone="text-rose-300" />
             <ReportRow label="سود خالص تعهدی" value={toman(net)} strong />
             <ReportRow label="وجه دریافتی واقعی" value="۰ تومان" tone="text-muted-foreground" />
           </div>
-          <p className="mt-2 rounded-lg bg-amber-50 px-2.5 py-2 text-[10px] leading-5 text-amber-800">
+          <p className="mt-2 rounded-lg bg-amber-500/10 px-2.5 py-2 text-[10px] leading-5 text-amber-200">
             هیچ مبلغی تا اتصال درگاه پرداخت دریافت یا پرداخت نشده است؛ اعداد بالا تعهدی هستند و از رکوردهای واقعی معاملات محاسبه می‌شوند.
           </p>
         </div>

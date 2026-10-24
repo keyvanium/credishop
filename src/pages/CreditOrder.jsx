@@ -43,12 +43,12 @@ export default function CreditOrder({ side }) {
       </header>
 
       {created ? (
-        <div className="space-y-2 rounded-2xl border border-emerald-200 bg-emerald-50 p-4">
-          <p className="flex items-center gap-1.5 text-[13px] font-semibold text-emerald-800">
+        <div className="space-y-2 rounded-2xl border border-emerald-400/20 bg-emerald-500/10 p-4">
+          <p className="flex items-center gap-1.5 text-[13px] font-semibold text-emerald-200">
             <CheckCircle2 className="h-4 w-4" />
             سفارش شما ثبت و در مارکت‌لیست منتشر شد.
           </p>
-          <p className="text-[11px] leading-6 text-emerald-900">
+          <p className="text-[11px] leading-6 text-emerald-200">
             کد سفارش: <span className="font-semibold">{created.order.order_code}</span> · قیمت {' '}
             {toman(created.order.total_price)} · کارمزد شما {toman(side === 'sell' ? created.fees.seller_fee : created.fees.buyer_fee)}
           </p>

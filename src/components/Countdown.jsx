@@ -17,7 +17,7 @@ export default function Countdown({ deadline, label = 'مهلت' }) {
 
   return (
     <span
-      className={`inline-flex items-center gap-1.5 rounded-lg border px-2 py-1 text-[11px] font-medium ${expired ? 'border-rose-200 bg-rose-50 text-rose-700' : 'border-border bg-muted/60 text-muted-foreground'}`}
+      className={`inline-flex items-center gap-1.5 rounded-lg border px-2 py-1 text-[11px] font-medium ${expired ? 'border-rose-400/20 bg-rose-500/10 text-rose-300' : 'border-border bg-muted/60 text-muted-foreground'}`}
     >
       <Clock className="h-3.5 w-3.5" />
       {expired ? `${label} به پایان رسیده` : `${label}: ${durationText(ms)}`}

@@ -118,7 +118,7 @@ export default function Support() {
         </p>
       </header>
 
-      {error ? <p className="rounded-xl bg-rose-50 px-3 py-2 text-xs text-rose-700">{error}</p> : null}
+      {error ? <p className="rounded-xl bg-rose-500/10 px-3 py-2 text-xs text-rose-300">{error}</p> : null}
 
       <div className="grid gap-4 lg:grid-cols-[1fr_1.2fr]">
         <div className="space-y-3">

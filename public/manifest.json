@@ -1,0 +1,14 @@
+{
+  "name": "اعتبارمارکت",
+  "short_name": "اعتبارمارکت",
+  "description": "بازار امن خرید و فروش اعتبار خرید سرویس‌هایی مانند دیجی‌پی، اسنپ‌پی، ترب‌پی و باسلام",
+  "start_url": "/",
+  "display": "standalone",
+  "dir": "rtl",
+  "lang": "fa",
+  "background_color": "#080a12",
+  "theme_color": "#080a12",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}

@@ -58,12 +58,12 @@ export default function TradeActionPanel({ trade, user, profile, settings, onDon
       <p className="font-heading text-sm font-semibold text-foreground">اقدام‌های مجاز شما</p>
 
       {needsPayment ? (
-        <div className="space-y-2 rounded-xl border border-sky-200 bg-sky-50/70 p-3">
-          <p className="flex items-center gap-1.5 text-[12px] font-semibold text-sky-900">
+        <div className="space-y-2 rounded-xl border border-sky-400/20 bg-sky-500/10 p-3">
+          <p className="flex items-center gap-1.5 text-[12px] font-semibold text-sky-200">
             <Wallet className="h-4 w-4" />
             پرداخت با شبکه TON
           </p>
-          <p className="text-[11px] leading-5 text-sky-900">
+          <p className="text-[11px] leading-5 text-sky-200">
             مبلغ قابل پرداخت: <span className="font-semibold">{toman(trade.buyer_pays)}</span>
           </p>
           {settings?.ton_wallet_address ? (
@@ -74,7 +74,7 @@ export default function TradeActionPanel({ trade, user, profile, settings, onDon
               </span>
             </p>
           ) : (
-            <p className="rounded-lg bg-amber-50 px-2 py-1.5 text-[10px] leading-5 text-amber-800">
+            <p className="rounded-lg bg-amber-500/10 px-2 py-1.5 text-[10px] leading-5 text-amber-200">
               آدرس کیف پول تون هنوز توسط مدیر ثبت نشده است؛ تا آن زمان اعلام پرداخت ممکن نیست.
             </p>
           )}
@@ -89,7 +89,7 @@ export default function TradeActionPanel({ trade, user, profile, settings, onDon
       ) : null}
 
       {trade.escrow_mode === 'disabled' ? (
-        <p className="flex items-start gap-2 rounded-xl border border-amber-200 bg-amber-50 px-3 py-2 text-[11px] leading-5 text-amber-800">
+        <p className="flex items-start gap-2 rounded-xl border border-amber-400/20 bg-amber-500/10 px-3 py-2 text-[11px] leading-5 text-amber-200">
           <ShieldAlert className="mt-0.5 h-3.5 w-3.5 shrink-0" />
           پرداخت مستقیم بین طرفین روی شبکه TON انجام و با هش تراکنش مستند می‌شود؛ تسویه مالی فروشنده پس از تأیید خریدار آزاد
           می‌گردد.
@@ -119,7 +119,7 @@ export default function TradeActionPanel({ trade, user, profile, settings, onDon
                 key={action.id}
                 size="sm"
                 variant={DANGER.includes(action.id) ? 'outline' : 'default'}
-                className={DANGER.includes(action.id) ? 'border-rose-200 text-rose-600 hover:bg-rose-50' : ''}
+                className={DANGER.includes(action.id) ? 'border-rose-400/20 text-rose-300 hover:bg-rose-500/10' : ''}
                 disabled={!!busy}
                 onClick={() => run(action.id)}
               >
@@ -147,7 +147,7 @@ export default function TradeActionPanel({ trade, user, profile, settings, onDon
         </p>
       ) : null}
 
-      {error ? <p className="rounded-xl bg-rose-50 px-3 py-2 text-xs leading-5 text-rose-700">{error}</p> : null}
+      {error ? <p className="rounded-xl bg-rose-500/10 px-3 py-2 text-xs leading-5 text-rose-300">{error}</p> : null}
     </div>
   );
 }
