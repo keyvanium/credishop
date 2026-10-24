@@ -1,0 +1,164 @@
+{
+  "name": "StoreOrder",
+  "type": "object",
+  "properties": {
+    "order_code": {
+      "type": "string"
+    },
+    "product_id": {
+      "type": "string"
+    },
+    "product_title": {
+      "type": "string"
+    },
+    "seller_id": {
+      "type": "string"
+    },
+    "seller_name": {
+      "type": "string"
+    },
+    "buyer_id": {
+      "type": "string"
+    },
+    "buyer_name": {
+      "type": "string"
+    },
+    "participant_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "quantity": {
+      "type": "number",
+      "default": 1
+    },
+    "wholesale": {
+      "type": "boolean",
+      "default": false
+    },
+    "unit_price": {
+      "type": "number"
+    },
+    "subtotal": {
+      "type": "number"
+    },
+    "commission_rate": {
+      "type": "number",
+      "default": 0
+    },
+    "commission_amount": {
+      "type": "number",
+      "default": 0
+    },
+    "seller_net": {
+      "type": "number",
+      "default": 0
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "awaiting_payment",
+        "processing",
+        "delivered",
+        "cancelled",
+        "refunded",
+        "disputed"
+      ],
+      "default": "awaiting_payment"
+    },
+    "payment_status": {
+      "type": "string",
+      "enum": [
+        "not_configured",
+        "unpaid",
+        "paid",
+        "refunded"
+      ],
+      "default": "not_configured"
+    },
+    "delivery_type": {
+      "type": "string",
+      "default": "digital"
+    },
+    "delivery_address": {
+      "type": "string"
+    },
+    "contact_phone": {
+      "type": "string"
+    },
+    "delivery_note": {
+      "type": "string"
+    },
+    "buyer_note": {
+      "type": "string"
+    },
+    "delivered_at": {
+      "type": "string"
+    },
+    "cancelled_reason": {
+      "type": "string"
+    },
+    "stock_applied": {
+      "type": "boolean",
+      "default": false
+    },
+    "ledger_posted": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": [
+    "order_code",
+    "product_id",
+    "buyer_id",
+    "seller_id"
+  ],
+  "rls": {
+    "create": {
+      "$and": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "data.buyer_id": "{{user.id}}"
+        }
+      ]
+    },
+    "read": {
+      "$or": [
+        {
+          "data.buyer_id": "{{user.id}}"
+        },
+        {
+          "data.seller_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "update": {
+      "$or": [
+        {
+          "data.buyer_id": "{{user.id}}"
+        },
+        {
+          "data.seller_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

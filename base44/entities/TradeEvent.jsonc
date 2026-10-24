@@ -1,0 +1,100 @@
+{
+  "name": "TradeEvent",
+  "type": "object",
+  "properties": {
+    "trade_id": {
+      "type": "string"
+    },
+    "trade_code": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "created",
+        "transition",
+        "action",
+        "evidence",
+        "expiry",
+        "dispute",
+        "refund",
+        "settlement",
+        "system"
+      ]
+    },
+    "action": {
+      "type": "string"
+    },
+    "from_status": {
+      "type": "string"
+    },
+    "to_status": {
+      "type": "string"
+    },
+    "actor_id": {
+      "type": "string"
+    },
+    "actor_name": {
+      "type": "string"
+    },
+    "actor_role": {
+      "type": "string",
+      "enum": [
+        "buyer",
+        "seller",
+        "admin",
+        "system"
+      ]
+    },
+    "note": {
+      "type": "string"
+    },
+    "meta_text": {
+      "type": "string"
+    },
+    "participant_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "occurred_at": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "trade_id",
+    "type"
+  ],
+  "rls": {
+    "create": {
+      "data.participant_ids": {
+        "$in": [
+          "{{user.id}}"
+        ]
+      }
+    },
+    "read": {
+      "$or": [
+        {
+          "data.participant_ids": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

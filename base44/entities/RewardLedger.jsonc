@@ -1,0 +1,94 @@
+{
+  "name": "RewardLedger",
+  "type": "object",
+  "properties": {
+    "entry_code": {
+      "type": "string"
+    },
+    "user_id": {
+      "type": "string"
+    },
+    "user_display": {
+      "type": "string"
+    },
+    "kind": {
+      "type": "string",
+      "enum": [
+        "loyalty",
+        "referral",
+        "mission",
+        "spin",
+        "dice",
+        "adjustment"
+      ]
+    },
+    "direction": {
+      "type": "string",
+      "enum": [
+        "credit",
+        "debit"
+      ],
+      "default": "credit"
+    },
+    "points": {
+      "type": "number"
+    },
+    "trade_id": {
+      "type": "string"
+    },
+    "note": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "posted",
+        "reversed"
+      ],
+      "default": "posted"
+    },
+    "reference": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "entry_code",
+    "user_id",
+    "points"
+  ],
+  "rls": {
+    "create": {
+      "$and": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "data.user_id": "{{user.id}}"
+        }
+      ]
+    },
+    "read": {
+      "$or": [
+        {
+          "data.user_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

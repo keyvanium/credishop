@@ -1,0 +1,91 @@
+{
+  "name": "FeeRule",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "scope": {
+      "type": "string",
+      "enum": [
+        "global",
+        "service",
+        "store"
+      ],
+      "default": "global"
+    },
+    "service": {
+      "type": "string"
+    },
+    "side": {
+      "type": "string",
+      "enum": [
+        "buy",
+        "sell",
+        "store"
+      ],
+      "default": "buy"
+    },
+    "fee_type": {
+      "type": "string",
+      "enum": [
+        "percent",
+        "fixed",
+        "percent_plus_fixed"
+      ],
+      "default": "percent"
+    },
+    "rate_percent": {
+      "type": "number",
+      "default": 0
+    },
+    "fixed_amount": {
+      "type": "number",
+      "default": 0
+    },
+    "min_fee": {
+      "type": "number",
+      "default": 0
+    },
+    "max_fee": {
+      "type": "number",
+      "default": 0
+    },
+    "active": {
+      "type": "boolean",
+      "default": true
+    },
+    "priority": {
+      "type": "number",
+      "default": 10
+    },
+    "notes": {
+      "type": "string"
+    },
+    "updated_by": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "name",
+    "side"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": {},
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

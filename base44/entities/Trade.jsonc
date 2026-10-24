@@ -1,0 +1,267 @@
+{
+  "name": "Trade",
+  "type": "object",
+  "properties": {
+    "trade_code": {
+      "type": "string"
+    },
+    "order_id": {
+      "type": "string"
+    },
+    "order_code": {
+      "type": "string"
+    },
+    "service": {
+      "type": "string"
+    },
+    "service_name": {
+      "type": "string"
+    },
+    "credit_amount": {
+      "type": "number"
+    },
+    "price": {
+      "type": "number"
+    },
+    "unit_rate": {
+      "type": "number"
+    },
+    "delivery_method": {
+      "type": "string"
+    },
+    "terms": {
+      "type": "string"
+    },
+    "deadline_minutes": {
+      "type": "number",
+      "default": 60
+    },
+    "buyer_id": {
+      "type": "string"
+    },
+    "buyer_display": {
+      "type": "string"
+    },
+    "seller_id": {
+      "type": "string"
+    },
+    "seller_display": {
+      "type": "string"
+    },
+    "participant_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "listed",
+        "matched",
+        "awaiting_funding",
+        "funded",
+        "awaiting_delivery",
+        "purchase_in_progress",
+        "awaiting_confirmation",
+        "settled",
+        "cancelled",
+        "disputed",
+        "refunded"
+      ],
+      "default": "matched"
+    },
+    "buyer_fee": {
+      "type": "number",
+      "default": 0
+    },
+    "seller_fee": {
+      "type": "number",
+      "default": 0
+    },
+    "platform_fee_total": {
+      "type": "number",
+      "default": 0
+    },
+    "buyer_pays": {
+      "type": "number",
+      "default": 0
+    },
+    "net_to_seller": {
+      "type": "number",
+      "default": 0
+    },
+    "fee_snapshot": {
+      "type": "string"
+    },
+    "contract_hash": {
+      "type": "string"
+    },
+    "escrow_mode": {
+      "type": "string",
+      "enum": [
+        "disabled",
+        "enabled"
+      ],
+      "default": "disabled"
+    },
+    "funding_method": {
+      "type": "string",
+      "default": "direct_between_parties"
+    },
+    "funding_declared_at": {
+      "type": "string"
+    },
+    "funding_reference": {
+      "type": "string"
+    },
+    "funding_verified": {
+      "type": "boolean",
+      "default": false
+    },
+    "funding_deadline_at": {
+      "type": "string"
+    },
+    "delivery_deadline_at": {
+      "type": "string"
+    },
+    "confirmation_deadline_at": {
+      "type": "string"
+    },
+    "status_timestamps": {
+      "type": "object"
+    },
+    "last_action": {
+      "type": "string"
+    },
+    "last_action_at": {
+      "type": "string"
+    },
+    "dispute_reason": {
+      "type": "string"
+    },
+    "dispute_opened_by_id": {
+      "type": "string"
+    },
+    "dispute_status": {
+      "type": "string",
+      "enum": [
+        "none",
+        "open",
+        "resolved_buyer",
+        "resolved_seller",
+        "rejected"
+      ]
+    },
+    "resolution_note": {
+      "type": "string"
+    },
+    "resolved_by_id": {
+      "type": "string"
+    },
+    "settlement_locked": {
+      "type": "boolean",
+      "default": false
+    },
+    "ledger_posted": {
+      "type": "boolean",
+      "default": false
+    },
+    "ledger_state": {
+      "type": "string",
+      "enum": [
+        "none",
+        "buyer_posted",
+        "seller_posted",
+        "complete"
+      ],
+      "default": "none"
+    },
+    "payout_status": {
+      "type": "string",
+      "enum": [
+        "none",
+        "pending",
+        "released",
+        "blocked"
+      ],
+      "default": "none"
+    },
+    "evidence_count": {
+      "type": "number",
+      "default": 0
+    },
+    "buyer_confirmed_at": {
+      "type": "string"
+    },
+    "seller_completed_at": {
+      "type": "string"
+    },
+    "buyer_rating": {
+      "type": "number"
+    },
+    "buyer_rating_note": {
+      "type": "string"
+    },
+    "cancelled_reason": {
+      "type": "string"
+    },
+    "expiry_reason": {
+      "type": "string"
+    },
+    "closed_at": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "trade_code",
+    "buyer_id",
+    "seller_id"
+  ],
+  "rls": {
+    "create": {
+      "$or": [
+        {
+          "data.buyer_id": "{{user.id}}"
+        },
+        {
+          "data.seller_id": "{{user.id}}"
+        }
+      ]
+    },
+    "read": {
+      "$or": [
+        {
+          "data.participant_ids": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "update": {
+      "$or": [
+        {
+          "data.participant_ids": {
+            "$in": [
+              "{{user.id}}"
+            ]
+          }
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

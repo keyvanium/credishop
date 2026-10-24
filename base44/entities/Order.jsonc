@@ -1,0 +1,132 @@
+{
+  "name": "Order",
+  "type": "object",
+  "properties": {
+    "order_code": {
+      "type": "string"
+    },
+    "side": {
+      "type": "string",
+      "enum": [
+        "buy",
+        "sell"
+      ]
+    },
+    "service": {
+      "type": "string"
+    },
+    "service_name": {
+      "type": "string"
+    },
+    "credit_amount": {
+      "type": "number"
+    },
+    "total_price": {
+      "type": "number"
+    },
+    "unit_rate": {
+      "type": "number"
+    },
+    "deadline_minutes": {
+      "type": "number",
+      "default": 60
+    },
+    "terms": {
+      "type": "string"
+    },
+    "delivery_method": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "listed",
+        "matched",
+        "cancelled",
+        "expired"
+      ],
+      "default": "draft"
+    },
+    "owner_id": {
+      "type": "string"
+    },
+    "owner_display": {
+      "type": "string"
+    },
+    "owner_rating": {
+      "type": "number",
+      "default": 0
+    },
+    "owner_completed_trades": {
+      "type": "number",
+      "default": 0
+    },
+    "owner_verification": {
+      "type": "string",
+      "default": "unverified"
+    },
+    "fee_preview": {
+      "type": "number",
+      "default": 0
+    },
+    "accepted_trade_id": {
+      "type": "string"
+    },
+    "accepted_trade_code": {
+      "type": "string"
+    },
+    "accepted_by_id": {
+      "type": "string"
+    },
+    "listing_expires_at": {
+      "type": "string"
+    },
+    "featured": {
+      "type": "boolean",
+      "default": false
+    },
+    "cancelled_reason": {
+      "type": "string"
+    },
+    "is_demo": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": [
+    "order_code",
+    "side",
+    "service"
+  ],
+  "rls": {
+    "create": {
+      "$and": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "data.owner_id": "{{user.id}}"
+        }
+      ]
+    },
+    "read": {},
+    "update": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

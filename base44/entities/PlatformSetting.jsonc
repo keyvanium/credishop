@@ -1,0 +1,68 @@
+{
+  "name": "PlatformSetting",
+  "type": "object",
+  "properties": {
+    "key": {
+      "type": "string"
+    },
+    "label": {
+      "type": "string"
+    },
+    "group": {
+      "type": "string",
+      "enum": [
+        "fees",
+        "trades",
+        "store",
+        "integrations",
+        "revenue",
+        "general"
+      ],
+      "default": "general"
+    },
+    "description": {
+      "type": "string"
+    },
+    "value": {
+      "type": "string"
+    },
+    "value_type": {
+      "type": "string",
+      "enum": [
+        "string",
+        "number",
+        "boolean",
+        "json"
+      ],
+      "default": "string"
+    },
+    "locked": {
+      "type": "boolean",
+      "default": false
+    },
+    "updated_by": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "key"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": {},
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

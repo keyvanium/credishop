@@ -1,0 +1,136 @@
+{
+  "name": "LedgerEntry",
+  "type": "object",
+  "properties": {
+    "entry_code": {
+      "type": "string"
+    },
+    "scope": {
+      "type": "string",
+      "enum": [
+        "user",
+        "platform"
+      ],
+      "default": "user"
+    },
+    "user_id": {
+      "type": "string"
+    },
+    "user_display": {
+      "type": "string"
+    },
+    "trade_id": {
+      "type": "string"
+    },
+    "trade_code": {
+      "type": "string"
+    },
+    "store_order_id": {
+      "type": "string"
+    },
+    "store_order_code": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "buyer_charge",
+        "seller_payout",
+        "buyer_fee",
+        "seller_fee",
+        "platform_fee",
+        "store_commission",
+        "store_sale",
+        "refund",
+        "adjustment",
+        "subscription",
+        "promotion",
+        "referral_reward",
+        "gateway_fee"
+      ]
+    },
+    "direction": {
+      "type": "string",
+      "enum": [
+        "credit",
+        "debit"
+      ]
+    },
+    "amount": {
+      "type": "number"
+    },
+    "balance_after": {
+      "type": "number"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "posted",
+        "reversed"
+      ],
+      "default": "pending"
+    },
+    "reference": {
+      "type": "string"
+    },
+    "note": {
+      "type": "string"
+    },
+    "requires_gateway": {
+      "type": "boolean",
+      "default": true
+    },
+    "posted_at": {
+      "type": "string"
+    },
+    "reversed_at": {
+      "type": "string"
+    },
+    "reversal_of": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "entry_code",
+    "type",
+    "direction",
+    "amount"
+  ],
+  "rls": {
+    "create": {
+      "$or": [
+        {
+          "data.user_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "read": {
+      "$or": [
+        {
+          "data.user_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}
