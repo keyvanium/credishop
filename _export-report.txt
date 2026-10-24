@@ -1,0 +1,8 @@
+Base44 Project Extractor v0.6.1
+URL: https://app.base44.com/apps/6adb8081283f91697f51b958/editor/workspace/code?filePath=vite.config.js
+Tree file rows: 153
+Folders found: 15
+Exported source files: 153
+Retried files: 0
+Missing after retry: 0
+Source bytes: 552154
