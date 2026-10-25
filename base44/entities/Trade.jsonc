@@ -98,6 +98,28 @@
     "contract_hash": {
       "type": "string"
     },
+    "ton_anchor_status": {
+      "type": "string",
+      "enum": [
+        "none",
+        "pending",
+        "confirmed",
+        "failed"
+      ],
+      "default": "none"
+    },
+    "ton_anchor_comment": {
+      "type": "string"
+    },
+    "ton_tx_hash": {
+      "type": "string"
+    },
+    "ton_anchored_at": {
+      "type": "string"
+    },
+    "ton_anchored_by": {
+      "type": "string"
+    },
     "escrow_mode": {
       "type": "string",
       "enum": [

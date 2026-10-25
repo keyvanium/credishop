@@ -14,10 +14,12 @@ import {
   UserRound
 } from 'lucide-react';
 import { base44 } from '@/api/base44Client';
+import { TonConnectButton } from '@tonconnect/ui-react';
 import { Button } from '@/components/ui/button';
 import useCurrentUser from '@/hooks/useCurrentUser';
 import useDeadlineWatch from '@/hooks/useDeadlineWatch';
 import { setTonRate } from '@/lib/format';
+import { TON_NETWORK } from '@/lib/ton';
 
 const MAIN_LINKS = [
   { to: '/sell', label: 'فروش اعتبار', icon: ListChecks },
@@ -100,6 +102,12 @@ export default function Layout() {
           </nav>
 
           <div className="mr-auto flex items-center gap-1.5">
+            <span className="hidden items-center gap-1 rounded-full border border-sky-400/20 bg-sky-500/10 px-2 py-1 text-[10px] font-medium text-sky-300 md:flex">
+              TON {TON_NETWORK === 'mainnet' ? 'مین‌نت' : 'تست‌نت'}
+            </span>
+            <div className="ton-connect-btn hidden sm:block">
+              <TonConnectButton />
+            </div>
             <Link
               to="/notifications"
               className="relative rounded-lg p-2 text-muted-foreground transition hover:bg-white/5 hover:text-foreground"
